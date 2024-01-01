@@ -4,7 +4,7 @@ import DatePicker from "../UI/DatePicker";
 
 const TaskForm = () => {
   const [title, setTitle] = useState("");
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(new Date());
   return (
     <View style={{ width: "100%" }}>
       <TextInput
