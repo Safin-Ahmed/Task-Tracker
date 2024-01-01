@@ -8,6 +8,7 @@ import {
   Text,
   StatusBar,
   TextInput,
+  ScrollView,
 } from "react-native";
 import Task from "../components/Task";
 import { useTasks } from "../context/TasksContext";
@@ -19,40 +20,56 @@ const TaskList = () => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.taskList}>
-        {tasks.map((task) => (
-          <Task key={task.id} task={task} />
-        ))}
-      </View>
-
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-          setModalVisible(!modalVisible);
+      <ScrollView
+        contentContainerStyle={{
+          flex: 1,
+          height: "100%",
+          justifyContent: "space-between",
         }}
       >
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>Add new task</Text>
-            <TaskForm />
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}
-            >
-              <Text style={styles.textStyle}>Hide Modal</Text>
-            </Pressable>
+        <View
+          style={{
+            flex: 1,
+            height: "100%",
+            justifyContent: "space-between",
+          }}
+        >
+          <View style={styles.taskList}>
+            {tasks.map((task) => (
+              <Task key={task.id} task={task} />
+            ))}
           </View>
-        </View>
-      </Modal>
 
-      <Button
-        onPress={() => setModalVisible(true)}
-        color="tomato"
-        title="Add Task +"
-      />
+          <Modal
+            animationType="slide"
+            transparent={true}
+            visible={modalVisible}
+            onRequestClose={() => {
+              Alert.alert("Modal has been closed.");
+              setModalVisible(!modalVisible);
+            }}
+          >
+            <View style={styles.centeredView}>
+              <View style={styles.modalView}>
+                <Text style={styles.modalText}>Add new task</Text>
+                <TaskForm setModalVisible={setModalVisible} />
+                <Pressable
+                  style={[styles.button, styles.buttonClose]}
+                  onPress={() => setModalVisible(!modalVisible)}
+                >
+                  <Text style={styles.textStyle}>X</Text>
+                </Pressable>
+              </View>
+            </View>
+          </Modal>
+
+          <Button
+            onPress={() => setModalVisible(true)}
+            color="tomato"
+            title="Add Task +"
+          />
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -89,9 +106,12 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
+    backgroundColor: "#111111",
+    boxShadow: `20px 20px 60px #181818,
+             -20px -20px 60px #202020`,
   },
   button: {
-    borderRadius: 20,
+    borderRadius: 10,
     padding: 10,
     elevation: 2,
   },
@@ -99,7 +119,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#F194FF",
   },
   buttonClose: {
-    backgroundColor: "#2196F3",
+    backgroundColor: "tomato",
+    position: "absolute",
+    right: 15,
+    top: 15,
   },
   textStyle: {
     color: "white",
@@ -109,6 +132,8 @@ const styles = StyleSheet.create({
   modalText: {
     marginBottom: 15,
     textAlign: "center",
+    color: "#fff",
+    fontSize: 18,
   },
 });
 

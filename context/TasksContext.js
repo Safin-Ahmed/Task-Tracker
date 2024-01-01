@@ -1,4 +1,5 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
+import { getData, storeData } from "../utils/storage";
 
 const TasksContext = createContext();
 
@@ -89,6 +90,33 @@ const TasksProvider = ({ children }) => {
     INITIAL_STATE
   );
 
+  useEffect(() => {
+    dispatch({ type: "loading" });
+    const getTasks = async () => {
+      const storedTasks = await getData("@taskTracker:tasks");
+
+      if (!storedTasks) {
+        return dispatch({ type: "tasks/loaded", payload: DUMMY_TASKS });
+      } else {
+        console.log({ storedTasks });
+        return dispatch({ type: "tasks/loaded", payload: storedTasks });
+      }
+    };
+    getTasks();
+  }, []);
+
+  useEffect(() => {
+    const storeTasks = async () => {
+      await storeData("@taskTracker:tasks", tasks);
+    };
+
+    storeTasks();
+  }, [tasks]);
+
+  const createTask = (newTask) => {
+    return dispatch({ type: "tasks/created", payload: newTask });
+  };
+
   const updateTask = (updatedTask) => {
     return dispatch({ type: "tasks/updated", payload: updatedTask });
   };
@@ -105,6 +133,7 @@ const TasksProvider = ({ children }) => {
         error,
         updateTask,
         deleteTask,
+        createTask,
       }}
     >
       {children}

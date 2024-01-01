@@ -58,9 +58,15 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     paddingBottom: 15,
     borderRadius: 50,
-    backgroundColor: "#1c1c1c",
+    backgroundColor: "#111111",
     boxShadow: `20px 20px 60px #181818,
              -20px -20px 60px #202020`,
+  },
+
+  checkedContainer: {
+    textDecorationLine: "line-through",
+    textDecorationColor: "red",
+    textDecorationStyle: "double",
   },
 
   taskText: {

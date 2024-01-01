@@ -23,7 +23,6 @@ const DatePicker = ({ value, setValue }) => {
 
 const styles = StyleSheet.create({
   datePicker: {
-    transform: `translateX(${"-75px"})`,
     marginTop: 10,
     marginBottom: 15,
   },
