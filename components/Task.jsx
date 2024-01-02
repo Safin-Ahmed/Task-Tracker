@@ -11,9 +11,7 @@ const Task = ({ task }) => {
   const { updateTask, deleteTask } = useTasks();
 
   useEffect(() => {
-    console.log("Useeffect running");
     if (isInitialRender) {
-      console.log("inital render");
       isInitialRender = false;
       return;
     }

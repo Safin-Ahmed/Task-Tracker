@@ -34,11 +34,22 @@ const TaskList = () => {
             justifyContent: "space-between",
           }}
         >
-          <View style={styles.taskList}>
-            {tasks.map((task) => (
-              <Task key={task.id} task={task} />
-            ))}
-          </View>
+          {tasks.length > 0 ? (
+            <View style={styles.taskList}>
+              {tasks.map((task) => (
+                <Task key={task.id} task={task} />
+              ))}
+            </View>
+          ) : (
+            <View
+              style={[styles.taskList, { flex: 1, justifyContent: "center" }]}
+            >
+              <Text style={{ color: "#fff", textAlign: "center" }}>
+                {" "}
+                Hurray! No tasks are pending!
+              </Text>
+            </View>
+          )}
 
           <Modal
             animationType="slide"

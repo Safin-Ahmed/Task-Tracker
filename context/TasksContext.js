@@ -57,7 +57,8 @@ function reducer(state, action) {
       const currentTaskIndex = newTasks.findIndex(
         (task) => task.id === action.payload.id
       );
-      if (!currentTaskIndex) throw new Error("Task not found!");
+      if (!currentTaskIndex && currentTaskIndex !== 0)
+        throw new Error("Task not found!");
 
       newTasks[currentTaskIndex] = action.payload;
       return {
@@ -98,7 +99,6 @@ const TasksProvider = ({ children }) => {
       if (!storedTasks) {
         return dispatch({ type: "tasks/loaded", payload: DUMMY_TASKS });
       } else {
-        console.log({ storedTasks });
         return dispatch({ type: "tasks/loaded", payload: storedTasks });
       }
     };

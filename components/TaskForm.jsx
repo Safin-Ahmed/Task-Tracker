@@ -1,16 +1,18 @@
 import { useState } from "react";
 import "react-native-get-random-values";
-import { v4 as uuidv4 } from "uuid";
+import uuid from "react-native-uuid";
 import {
   StyleSheet,
   Text,
   TextInput,
   View,
   Button,
+  Platform,
   Pressable,
 } from "react-native";
 import DatePicker from "../UI/DatePicker";
 import { useTasks } from "../context/TasksContext";
+import DatePickerAndroid from "../UI/DatePickerAndroid";
 
 const TaskForm = ({ setModalVisible = null }) => {
   const [title, setTitle] = useState("");
@@ -18,9 +20,11 @@ const TaskForm = ({ setModalVisible = null }) => {
 
   const { createTask } = useTasks();
 
+  const os = Platform.OS;
+
   const handleSubmit = () => {
     const newTask = {
-      id: uuidv4(),
+      id: uuid.v4(),
       title,
       due: date,
       status: "pending",
@@ -48,7 +52,11 @@ const TaskForm = ({ setModalVisible = null }) => {
         value={title}
         onChangeText={setTitle}
       />
-      <DatePicker value={date} setValue={setDate} />
+      {os === "ios" ? (
+        <DatePicker value={date} setValue={setDate} />
+      ) : (
+        <DatePickerAndroid value={date} setValue={setDate} />
+      )}
       <Pressable onPress={handleSubmit} style={styles.btn}>
         <Text style={styles.text}>Finish</Text>
       </Pressable>
