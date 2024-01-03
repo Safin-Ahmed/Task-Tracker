@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "TaskTacker",
+    "name": "Task Tracker",
     "slug": "task-tracker",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -17,11 +17,12 @@
       "bundleIdentifier": "com.ehsafin.tasktracker"
     },
     "android": {
+      "package": "com.ehsafin.tasktracker",
+      "version": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      },
-      "package": "com.ehsafin.tasktracker"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"

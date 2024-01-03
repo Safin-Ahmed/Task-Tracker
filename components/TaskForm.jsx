@@ -1,12 +1,10 @@
 import { useState } from "react";
-import "react-native-get-random-values";
 import uuid from "react-native-uuid";
 import {
   StyleSheet,
   Text,
   TextInput,
   View,
-  Button,
   Platform,
   Pressable,
 } from "react-native";
