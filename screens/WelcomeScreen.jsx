@@ -1,20 +1,28 @@
+import { useState } from "react";
 import { StyleSheet, View, Text, Button } from "react-native";
 
 const WelcomeScreen = ({ navigation }) => {
+  const [number, setNumber] = useState(0);
   return (
     <View style={styles.container}>
       <View>
         <Text style={styles.title}>Task Tracker 🔖</Text>
         <Text style={styles.subTitle}>
-          A dummy updated app for production developed by Safin
+          A dummy updated app v2 for production developed by Safin
         </Text>
+        <Text style={styles.subTitle}>Score: {number}</Text>
       </View>
       <View style={styles.buttonContainer}>
         <Button
           onPress={() => navigation.navigate("TaskList")}
-          style={styles.btn}
           color={"tomato"}
           title="Start Tracking"
+        />
+
+        <Button
+          onPress={() => setNumber(number + 1)}
+          color={"dodgerblue"}
+          title="Start Increasing"
         />
       </View>
     </View>
@@ -35,7 +43,7 @@ const styles = StyleSheet.create({
   },
   subTitle: {
     color: "#fff",
-    marginTop: 5,
+    marginTop: 15,
     fontSize: 14,
   },
   buttonContainer: {
