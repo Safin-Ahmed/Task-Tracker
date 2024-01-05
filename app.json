@@ -11,7 +11,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.ehsafin.tasktracker"
@@ -31,6 +33,20 @@
       "eas": {
         "projectId": "7f40786a-15d9-4a58-be7c-60d9e4d862d8"
       }
+    },
+    "plugins": [
+      [
+        "expo-updates",
+        {
+          "username": "ehsafin"
+        }
+      ]
+    ],
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/7f40786a-15d9-4a58-be7c-60d9e4d862d8"
     }
   }
 }
