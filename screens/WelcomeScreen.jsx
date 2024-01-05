@@ -6,11 +6,9 @@ const WelcomeScreen = ({ navigation }) => {
       <View>
         <Text style={styles.title}>Task Tracker 🔖</Text>
         <Text style={styles.subTitle}>
-          A dummy updated app for production developed by Safin
+          A dummy updated app v2 for production developed by Safin
         </Text>
-
-        <Text>Number 0</Text>
-        <Button>Increment +</Button>
+        <Text>This is another line of dummy text</Text>
       </View>
       <View style={styles.buttonContainer}>
         <Button
