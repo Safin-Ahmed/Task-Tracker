@@ -5,7 +5,9 @@ const WelcomeScreen = ({ navigation }) => {
     <View style={styles.container}>
       <View>
         <Text style={styles.title}>Task Tracker 🔖</Text>
-        <Text style={styles.subTitle}>A dummy app developed by Safin</Text>
+        <Text style={styles.subTitle}>
+          A dummy updated app for production developed by Safin
+        </Text>
       </View>
       <View style={styles.buttonContainer}>
         <Button
