@@ -1,31 +1,29 @@
 import { useState } from "react";
 import { StyleSheet, View, Text, Button } from "react-native";
+import Score from "../components/Score";
 
 const WelcomeScreen = ({ navigation }) => {
-  const [number, setNumber] = useState(0);
   return (
-    <View style={styles.container}>
-      <View>
-        <Text style={styles.title}>Task Tracker 🔖</Text>
-        <Text style={styles.subTitle}>
-          A dummy updated app v2 for production developed by Safin
-        </Text>
-        <Text style={styles.subTitle}>Score: {number}</Text>
-      </View>
-      <View style={styles.buttonContainer}>
-        <Button
-          onPress={() => navigation.navigate("TaskList")}
-          color={"tomato"}
-          title="Start Tracking"
-        />
+    <>
+      <View style={styles.container}>
+        <View>
+          <Text style={styles.title}>Task Tracker 🔖</Text>
+          <Text style={styles.subTitle}>
+            A dummy updated app v2 for production developed by Safin
+          </Text>
+        </View>
 
-        <Button
-          onPress={() => setNumber(number + 1)}
-          color={"dodgerblue"}
-          title="Start Increasing"
-        />
+        <Score />
+
+        <View style={styles.buttonContainer}>
+          <Button
+            onPress={() => navigation.navigate("TaskList")}
+            color={"tomato"}
+            title="Start Tracking"
+          />
+        </View>
       </View>
-    </View>
+    </>
   );
 };
 
@@ -45,6 +43,9 @@ const styles = StyleSheet.create({
     color: "#fff",
     marginTop: 15,
     fontSize: 14,
+    paddingLeft: 15,
+    paddingRight: 15,
+    textAlign: "center",
   },
   buttonContainer: {
     position: "absolute",
