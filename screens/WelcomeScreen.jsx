@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { StyleSheet, View, Text, Button } from "react-native";
 
 const WelcomeScreen = ({ navigation }) => {
+  const [number, setNumber] = useState(0);
   return (
     <View style={styles.container}>
       <View>
@@ -8,6 +10,11 @@ const WelcomeScreen = ({ navigation }) => {
         <Text style={styles.subTitle}>
           A dummy updated app for production developed by Safin
         </Text>
+
+        <Text>Number: {number}</Text>
+        <Button onPress={() => setNumber((prev) => prev + 1)}>
+          Increment +
+        </Button>
       </View>
       <View style={styles.buttonContainer}>
         <Button
