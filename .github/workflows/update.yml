@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - production
+      - development
 
     paths-ignore:
       - ".github/workflows/**"
