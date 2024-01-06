@@ -8,7 +8,7 @@ const Score = () => {
       <Text style={styles.title}>Score: {number}</Text>
       <Button
         onPress={() => setNumber(number + 1)}
-        color={"dodgerblue"}
+        color={"orange"}
         title="Start Increasing"
       />
     </View>
