@@ -6,8 +6,9 @@ on:
     types:
       - opened
       - synchronize
-      - closed
-
+  push:
+    branches:
+      - development
 jobs:
   update:
     name: EAS Update
