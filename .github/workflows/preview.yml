@@ -6,9 +6,9 @@ on:
     types:
       - opened
       - synchronize
-  push:
-    branches:
-      - development
+
+    paths-ignore:
+      - ".github/workflows/**"
 jobs:
   update:
     name: EAS Update
