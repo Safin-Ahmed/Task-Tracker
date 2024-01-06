@@ -5,7 +5,7 @@ const Score = () => {
   const [number, setNumber] = useState(0);
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Score: {number}</Text>
+      <Text style={styles.title}>Updated Score: {number}</Text>
       <Button
         onPress={() => setNumber(number + 1)}
         color={"dodgerblue"}
