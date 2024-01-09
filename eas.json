@@ -17,6 +17,15 @@
 
     "production": {
       "channel": "production"
+    },
+
+    "version2": {
+      "channel": "production"
+    },
+
+    "version2-dev": {
+      "channel": "version2-dev",
+      "distribution": "internal"
     }
   },
 

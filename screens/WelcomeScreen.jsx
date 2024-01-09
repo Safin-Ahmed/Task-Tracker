@@ -9,7 +9,7 @@ const WelcomeScreen = ({ navigation }) => {
         <View>
           <Text style={styles.title}>Task Tracker 🔖</Text>
           <Text style={styles.subTitle}>
-            A dummy updated app v2 for production developed by Safin
+            A dummy updated app v2.0 for dev team developed by Safin
           </Text>
         </View>
 
