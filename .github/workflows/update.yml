@@ -4,6 +4,8 @@ on:
     branches:
       - production
       - development
+      - version2
+      - version2-dev
 
     paths-ignore:
       - ".github/workflows/**"
